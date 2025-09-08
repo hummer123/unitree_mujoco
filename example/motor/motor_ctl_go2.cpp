@@ -110,7 +110,7 @@ void Custom::motor_control(int motorId, float q, float dq, float kp, float kd, f
     low_cmd.motor_cmd()[target_motor].kp() = kp;
     low_cmd.motor_cmd()[target_motor].kd() = kd;
     low_cmd.motor_cmd()[target_motor].tau() = tau;
-    std::cout << "Motor[" << target_motor << "] q: " << q << ", dq: " << dq << ", kp: " << kp << ", kd: " << kd << ", tau: " << tau << std::endl;
+    // std::cout << "Motor[" << target_motor << "] q: " << q << ", dq: " << dq << ", kp: " << kp << ", kd: " << kd << ", tau: " << tau << std::endl;
 
     low_cmd.crc() = crc32_core((uint32_t *)&low_cmd, (sizeof(unitree_go::msg::dds_::LowCmd_) >> 2) - 1);
     lowcmd_publisher->Write(low_cmd);
